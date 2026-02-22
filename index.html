@@ -4,103 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CHRONOS | Mythical Time</title>
+<title>Puma Shoes | Tehleel Zahid</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* ===== GLOBAL ===== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Poppins;
 }
 
 body{
-font-family:Poppins;
-background:#050507;
+background:#0f0f12;
 color:white;
 overflow-x:hidden;
 }
 
-/* COLORS */
+/* MULTI COLOR VARIABLES */
 :root{
---purple:#7b2cff;
---neon:#39ff14;
---dark:#050507;
+--red:#ff2e63;
+--blue:#08d9d6;
+--yellow:#ffd166;
+--purple:#8338ec;
 }
 
-/* ================= LOADING SCREEN ================= */
+/* ===== HEADER ===== */
 
-#loader{
+header{
 position:fixed;
 width:100%;
-height:100vh;
-background:#050507;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
-}
-
-.loader-ring{
-width:80px;
-height:80px;
-border:4px solid transparent;
-border-top:4px solid var(--purple);
-border-right:4px solid var(--neon);
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-
-#loader h2{
-margin-top:20px;
-font-family:Orbitron;
-letter-spacing:3px;
-color:var(--neon);
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-/* ================= NAV ================= */
-
-nav{
-position:fixed;
-width:100%;
-padding:15px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(12px);
-z-index:100;
+padding:15px 30px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
 .logo{
-font-family:Orbitron;
-color:var(--neon);
-font-size:20px;
-letter-spacing:2px;
-}
-
-nav ul{
-display:flex;
-gap:15px;
-list-style:none;
+font-size:22px;
+font-weight:700;
+color:var(--yellow);
 }
 
 nav a{
-color:white;
+margin-left:20px;
 text-decoration:none;
-font-size:14px;
+color:white;
+transition:.3s;
 }
 
-/* ================= HERO ================= */
+nav a:hover{
+color:var(--red);
+}
+
+/* ===== HERO ===== */
 
 .hero{
 height:100vh;
@@ -109,17 +73,15 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
 background:
-radial-gradient(circle at center,
-rgba(123,44,255,.2),
-#050507 70%);
+linear-gradient(120deg,#111,#1a1a2e,#111);
+animation:bgMove 8s infinite alternate;
+padding:20px;
 }
 
 .hero h1{
-font-family:Orbitron;
-font-size:38px;
-background:linear-gradient(90deg,var(--purple),var(--neon));
+font-size:45px;
+background:linear-gradient(90deg,var(--red),var(--blue),var(--purple));
 -webkit-background-clip:text;
 color:transparent;
 animation:fadeUp 1s ease;
@@ -127,40 +89,40 @@ animation:fadeUp 1s ease;
 
 .hero p{
 margin-top:15px;
-color:#aaa;
+color:#ccc;
 animation:fadeUp 1.5s ease;
 }
 
-.cta{
+.btn{
 margin-top:25px;
-padding:12px 25px;
-border-radius:30px;
+padding:12px 28px;
 border:none;
-background:linear-gradient(45deg,var(--purple),var(--neon));
+border-radius:30px;
+background:linear-gradient(45deg,var(--red),var(--yellow));
 color:black;
-font-weight:bold;
+font-weight:600;
 cursor:pointer;
-box-shadow:0 0 15px var(--neon);
 transition:.4s;
 }
 
-.cta:hover{
+.btn:hover{
 transform:scale(1.1);
-box-shadow:0 0 30px var(--neon);
 }
 
-/* ================= WATCH CARDS ================= */
+/* ===== SECTIONS ===== */
 
 section{
-padding:70px 20px;
+padding:80px 25px;
 }
 
 .title{
 text-align:center;
-font-family:Orbitron;
 margin-bottom:40px;
-color:var(--purple);
+font-size:32px;
+color:var(--blue);
 }
+
+/* ===== SHOE CARDS ===== */
 
 .grid{
 display:grid;
@@ -169,17 +131,15 @@ gap:25px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border-radius:18px;
+background:#181818;
+border-radius:15px;
 overflow:hidden;
 transition:.4s;
-border:1px solid rgba(255,255,255,0.1);
 }
 
 .card img{
 width:100%;
-height:220px;
+height:230px;
 object-fit:cover;
 }
 
@@ -188,7 +148,7 @@ padding:20px;
 }
 
 .card h3{
-color:var(--neon);
+color:var(--yellow);
 }
 
 .card:hover{
@@ -196,34 +156,35 @@ transform:translateY(-10px);
 box-shadow:0 0 25px var(--purple);
 }
 
-/* ================= LANDING FEATURE BLOCK ================= */
+/* ===== TEMPLATE BLOCKS ===== */
 
-.feature{
+.templates{
+display:grid;
+gap:20px;
+}
+
+.template-box{
+padding:40px;
+border-radius:15px;
 text-align:center;
-padding:80px 20px;
-background:linear-gradient(180deg,#050507,#0b0015);
+background:linear-gradient(135deg,var(--purple),var(--blue));
+transition:.4s;
 }
 
-.feature h2{
-font-family:Orbitron;
-font-size:28px;
-color:var(--neon);
+.template-box:hover{
+transform:scale(1.05);
 }
 
-.feature p{
-margin-top:15px;
-color:#bbb;
-}
-
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 
 footer{
 text-align:center;
 padding:30px;
+background:black;
 color:#777;
 }
 
-/* ================= ANIMATIONS ================= */
+/* ===== ANIMATIONS ===== */
 
 @keyframes fadeUp{
 from{
@@ -236,7 +197,12 @@ transform:translateY(0);
 }
 }
 
-/* ================= DESKTOP OPTIMIZATION ================= */
+@keyframes bgMove{
+0%{background-position:left;}
+100%{background-position:right;}
+}
+
+/* ===== DESKTOP ===== */
 
 @media(min-width:768px){
 
@@ -248,8 +214,8 @@ font-size:70px;
 grid-template-columns:repeat(3,1fr);
 }
 
-nav{
-padding:20px 60px;
+.templates{
+grid-template-columns:repeat(3,1fr);
 }
 
 }
@@ -259,85 +225,83 @@ padding:20px 60px;
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-<div class="loader-ring"></div>
-<h2>CHRONOS</h2>
-</div>
-
-<!-- NAVBAR -->
+<!-- HEADER -->
+<header>
+<div class="logo">Tehleel Zahid</div>
 <nav>
-<div class="logo">CHRONOS</div>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#collection">Watches</a></li>
-</ul>
+<a href="#">Home</a>
+<a href="#shoes">Shoes</a>
+<a href="#templates">Templates</a>
 </nav>
+</header>
 
-<!-- HERO LANDING -->
+<!-- HERO -->
 <section class="hero">
-<h1>TIME OF THE GODS</h1>
-<p>Greek mythology meets futuristic luxury.</p>
-<button class="cta">Discover Watches</button>
+<h1>PUMA STYLE PERFORMANCE</h1>
+<p>Speed • Comfort • Innovation</p>
+<button class="btn">Explore Collection</button>
 </section>
 
-<!-- FEATURE BLOCK -->
-<section class="feature">
-<h2>Forged Beyond Time</h2>
-<p>
-Inspired by Olympus. Designed for modern legends.
-Precision engineering wrapped in divine aesthetics.
-</p>
-</section>
-
-<!-- COLLECTION -->
-<section id="collection">
-<h2 class="title">Divine Collection</h2>
+<!-- SHOES SECTION -->
+<section id="shoes">
+<h2 class="title">Latest Shoes</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
 <div class="card-content">
-<h3>ZEUS</h3>
-<p>Power of lightning precision.</p>
+<h3>Runner X</h3>
+<p>Lightweight running experience.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa">
+<img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5">
 <div class="card-content">
-<h3>ARES</h3>
-<p>Built for warriors of time.</p>
+<h3>Street Pro</h3>
+<p>Urban style meets comfort.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d">
+<img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a">
 <div class="card-content">
-<h3>POSEIDON</h3>
-<p>Depth meets perfection.</p>
+<h3>Velocity Max</h3>
+<p>Built for performance athletes.</p>
 </div>
+</div>
+
+</div>
+</section>
+
+<!-- TEMPLATE SECTION -->
+<section id="templates">
+<h2 class="title">Brand Templates</h2>
+
+<div class="templates">
+
+<div class="template-box">
+<h3>Sport Collection</h3>
+<p>High performance designs.</p>
+</div>
+
+<div class="template-box">
+<h3>Lifestyle Series</h3>
+<p>Comfort meets fashion.</p>
+</div>
+
+<div class="template-box">
+<h3>Limited Edition</h3>
+<p>Exclusive premium drops.</p>
 </div>
 
 </div>
 </section>
 
 <footer>
-© 2026 CHRONOS — Mythical Timepieces
+© 2026 Puma Style Demo Website | Created by Tehleel Zahid
 </footer>
-
-<script>
-
-/* LOADING SCREEN */
-window.addEventListener("load",()=>{
-setTimeout(()=>{
-document.getElementById("loader").style.opacity="0";
-document.getElementById("loader").style.pointerEvents="none";
-},1800);
-});
-
-</script>
 
 </body>
 </html>
